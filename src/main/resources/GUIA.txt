@@ -1,0 +1,81 @@
+===========================================
+ GUÍA DE INSTALACIÓN DE MONGODB
+===========================================
+
+Sistemas soportados en esta guía:
+- Linux (Debian / Ubuntu / Linux Mint)
+- Windows (10/11)
+
+-------------------------------------------
+ LINUX (Debian / Ubuntu / Linux Mint)
+-------------------------------------------
+
+#1 - Actualizar repositorios
+sudo apt update
+
+#2 - Instalar dependencias necesarias
+sudo apt install -y gnupg curl software-properties-common
+
+#3 - Importar la clave pública de MongoDB
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
+  sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+  --dearmor
+
+#4 - Agregar el repositorio oficial de MongoDB (Ubuntu 22.04 / Mint 22 "jammy")
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | \
+  sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+  Nota: si usás otra versión de Ubuntu/Mint, reemplazá "jammy" por:
+     - focal (20.04 / Mint 20)
+     - bionic (18.04 / Mint 19)
+
+#5 - Actualizar la lista de paquetes
+sudo apt update
+
+#6 - Instalar MongoDB
+sudo apt install -y mongodb-org
+
+#7 - Habilitar e iniciar el servicio
+sudo systemctl enable mongod
+sudo systemctl start mongod
+
+#8 - Verificar que MongoDB está corriendo
+systemctl status mongod
+
+#9 - Probar conexión al shell de MongoDB
+mongosh
+
+
+-------------------------------------------
+ WINDOWS (10 / 11)
+-------------------------------------------
+
+#1 - Descargar el instalador desde la página oficial:
+https://www.mongodb.com/try/download/community
+
+#2 - Elegir:
+   - Versión: la más reciente estable (ej. 7.0.x)
+   - Plataforma: Windows x64
+   - Package: MSI
+
+#3 - Ejecutar el instalador (.msi) y seguir los pasos:
+   - Seleccionar "Complete" installation
+   - Marcar "Install MongoDB as a Service"
+   - Opcional: instalar también MongoDB Compass (GUI oficial)
+
+#4 - Una vez instalado, MongoDB corre como servicio:
+   - Abrir "services.msc" y buscar "MongoDB Server"
+   - O ejecutar en PowerShell:
+     net start MongoDB
+
+#5 - Conectarse al servidor desde el shell:
+   Abrir PowerShell o CMD y escribir:
+   mongosh
+
+   Si salió bien, deberías conectarte a:
+   mongodb://localhost:27017
+
+
+-------------------------------------------
+ FIN DE LA GUÍA
+-------------------------------------------
