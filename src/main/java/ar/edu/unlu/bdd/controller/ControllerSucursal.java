@@ -28,6 +28,12 @@ public class ControllerSucursal {
 
     public void alta(String nombre, String direccion) {
         try {
+            // Verificar que la socursal no existe ya
+            if (verificarExistenciaSucursal(nombre)) {
+                System.out.println("Error: Ya existe una sucursal con el nombre '" + nombre + "'. No se puede crear duplicado.");
+                return;
+            }
+
             Document nuevaSucursal = new Document("nombre", nombre)
                     .append("direccion", direccion);
 
@@ -100,6 +106,21 @@ public class ControllerSucursal {
 
         } catch (Exception e) {
             logger.error("Error al consultar las sucursales: {}", e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Verifica si una sucursal con el nombre dado ya existe.
+     * @param nombre Nombre de la sucursal a verificar
+     * @return true si ya existe, false en caso contrario
+     */
+    private boolean verificarExistenciaSucursal(String nombre) {
+        try {
+            Document sucursal = sucursalesCollection.find(eq("nombre", nombre)).first();
+            return sucursal != null;
+        } catch (Exception e) {
+            logger.error("Error al verificar la existencia de la socursal '{}': {}", nombre, e.getMessage(), e);
+            return false;
         }
     }
 }
