@@ -76,7 +76,7 @@ public class ViewVende {
 
         // Entrada código producto
         while (true) {
-            codigoProducto = CFZValidatorUtils.solicitarNumeroPorTeclado("📦 Ingrese el código del producto: ");
+            codigoProducto = CFZValidatorUtils.solicitarNumeroPorTeclado("Ingrese el código del producto: ");
             if (codigoProducto > 0) break;
             else {
                 System.out.println("El código debe ser un número válido mayor a 0.");
