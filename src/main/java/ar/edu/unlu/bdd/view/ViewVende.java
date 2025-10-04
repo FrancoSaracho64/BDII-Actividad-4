@@ -58,7 +58,7 @@ public class ViewVende {
      */
     private void inputAlta(ControllerVende controllerVende) {
         System.out.println("\nALTA de Relación Sucursal-Producto");
-        System.out.println("═══════════════════════════════════════════");
+        System.out.println("===================================================");
 
         String sucursal;
         int codigoProducto;
@@ -106,7 +106,7 @@ public class ViewVende {
      */
     private void inputBaja(ControllerVende controllerVende) {
         System.out.println("\nBAJA de Relación Sucursal-Producto");
-        System.out.println("═══════════════════════════════════════════");
+        System.out.println("======================================================");
 
         String sucursal;
         int codigoProducto;
@@ -135,7 +135,7 @@ public class ViewVende {
      */
     private void inputModificacion(ControllerVende controllerVende) {
         System.out.println("\nMODIFICACIÓN de Precio y Stock");
-        System.out.println("═══════════════════════════════════════════");
+        System.out.println("====================================================");
         System.out.println("Esta operación actualiza el precio y stock de una relación existente.");
 
         String sucursal;
@@ -181,7 +181,7 @@ public class ViewVende {
      */
     private void inputConsulta(ControllerVende controllerVende) {
         System.out.println("\nCONSULTA de Relaciones Sucursal-Producto");
-        System.out.println("═══════════════════════════════════════════");
+        System.out.println("======================================================");
         System.out.println("Opciones de consulta:");
         System.out.println("• 'todas' - Mostrar todas las relaciones");
         System.out.println("• Nombre de sucursal - Ver productos de esa sucursal");

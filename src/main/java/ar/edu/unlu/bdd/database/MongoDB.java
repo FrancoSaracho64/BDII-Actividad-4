@@ -256,7 +256,7 @@ public class MongoDB {
     public void mostrarEstadisticas() {
         try {
             System.out.println("\nESTADÍSTICAS DE LA BASE DE DATOS '" + DATABASE_NAME + "':");
-            System.out.println("═══════════════════════════════════════════════════════");
+            System.out.println("=============================================================");
 
             MongoIterable<String> collectionNames = database.listCollectionNames();
             int totalColecciones = 0;
@@ -269,10 +269,10 @@ public class MongoDB {
                 totalColecciones++;
             }
 
-            System.out.println("═══════════════════════════════════════════════════════");
+            System.out.println("=============================================================");
             System.out.println("Total colecciones: " + totalColecciones);
             System.out.println("Total documentos: " + totalDocumentos);
-            System.out.println("═══════════════════════════════════════════════════════\n");
+            System.out.println("=============================================================\n");
 
         } catch (Exception e) {
             logger.error("Error al mostrar estadísticas: {}", e.getMessage(), e);

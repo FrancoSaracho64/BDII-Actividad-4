@@ -192,7 +192,7 @@ public class ControllerVende {
                 }
             }
 
-            System.out.println("═══════════════════════════════════════════════════════════════════════");
+            System.out.println("===========================================================================");
             while (cursor.hasNext()) {
                 Document relacion = cursor.next();
                 System.out.println(" - Sucursal: " + relacion.getString("sucursal")
@@ -201,7 +201,7 @@ public class ControllerVende {
                         + " | Stock: " + relacion.getInteger("stock") + " unidades"
                         + " | ID: " + relacion.getObjectId("_id"));
             }
-            System.out.println("═══════════════════════════════════════════════════════════════════════");
+            System.out.println("===========================================================================");
             System.out.println("Consulta finalizada.");
 
         } catch (Exception e) {
